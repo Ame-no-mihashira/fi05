@@ -2,6 +2,7 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{subfiles}
+\usepackage{etoolbox}
 
 % text options
 \usepackage[T1]{fontenc}
@@ -23,6 +24,7 @@
 % content layout
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{multirow}
 
 % external imports
 \usepackage{graphicx}
@@ -34,6 +36,10 @@
 \addbibresource{res/external.bib}
 
 % \AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+\newcounter{rownum}
+\newcommand\rownumber{\stepcounter{rownum}\arabic{rownum}}
+\preto\table{\setcounter{rownum}{0}}
 
 \begin{document}
 \subfile{parts/cover}
